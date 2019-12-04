@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+void main() {
+char s[100];
+int i=1,c=0;
+clrscr();
+printf("enter string:");
+gets(s);
+if((s[0]>='a' && s[0]<='z') || (s[0]>='A' && s[0]<='Z') || s[0]==(char)95) {
+while(s[i]!=NULL) {
+if((s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z') || (s[i]>='0' && s[i]<='9') || s[i]==(char)95) {
+c=1;
+}
+else {
+printf("invalid identifier");
+break;
+}
+i++;
+}
+}
+else {
+printf("invalid identifier:");
+}
+if(c==1) {
+printf("valid identifier");
+}
+getch();
+}
