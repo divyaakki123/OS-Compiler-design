@@ -1,0 +1,48 @@
+/*
+consider the grammar
+E->iE1
+E1->+iE1/n , where n is epsilon symbol
+*/
+
+//code:
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+int l;
+char p[10];
+void E1(char q[],int r) {
+if(q[r]=='+') {
+r+=1;
+l=r;
+if(q[r]=='i') {
+r+=1;
+l=r;
+E1(p,r);
+}
+}
+else {
+return;
+}
+}
+
+void E(char q[],int r) {
+if(q[r]=='i') {
+r+=1;
+E1(p,r);
+}
+}
+
+void main() {
+l=0;
+clrscr();
+printf("enter string:");
+gets(p);
+E(p,l);
+if(p[l]=='$') {
+printf("parsing is completed");
+}
+else {
+printf("invalid string");
+}
+getch();
+}
